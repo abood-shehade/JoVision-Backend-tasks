@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\JoVision-Backend-tasks.props" />
+</Project>
