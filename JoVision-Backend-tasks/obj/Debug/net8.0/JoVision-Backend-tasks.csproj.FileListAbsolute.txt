@@ -30,3 +30,4 @@ C:\Users\abood\source\repos\JoVision-Backend-tasks\JoVision-Backend-tasks\obj\De
 C:\Users\abood\source\repos\JoVision-Backend-tasks\JoVision-Backend-tasks\obj\Debug\net8.0\JoVision-Backend-tasks.pdb
 C:\Users\abood\source\repos\JoVision-Backend-tasks\JoVision-Backend-tasks\obj\Debug\net8.0\JoVision-Backend-tasks.genruntimeconfig.cache
 C:\Users\abood\source\repos\JoVision-Backend-tasks\JoVision-Backend-tasks\obj\Debug\net8.0\ref\JoVision-Backend-tasks.dll
+C:\Users\abood\source\repos\JoVision-Backend-tasks\JoVision-Backend-tasks\obj\Debug\net8.0\JoVision-Backend-tasks.sourcelink.json
