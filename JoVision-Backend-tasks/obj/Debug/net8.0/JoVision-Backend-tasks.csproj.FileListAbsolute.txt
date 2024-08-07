@@ -31,3 +31,8 @@ C:\Users\abood\source\repos\JoVision-Backend-tasks\JoVision-Backend-tasks\obj\De
 C:\Users\abood\source\repos\JoVision-Backend-tasks\JoVision-Backend-tasks\obj\Debug\net8.0\JoVision-Backend-tasks.genruntimeconfig.cache
 C:\Users\abood\source\repos\JoVision-Backend-tasks\JoVision-Backend-tasks\obj\Debug\net8.0\ref\JoVision-Backend-tasks.dll
 C:\Users\abood\source\repos\JoVision-Backend-tasks\JoVision-Backend-tasks\obj\Debug\net8.0\JoVision-Backend-tasks.sourcelink.json
+C:\Users\abood\source\repos\JoVision-Backend-tasks\JoVision-Backend-tasks\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\abood\source\repos\JoVision-Backend-tasks\JoVision-Backend-tasks\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\abood\source\repos\JoVision-Backend-tasks\JoVision-Backend-tasks\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\abood\source\repos\JoVision-Backend-tasks\JoVision-Backend-tasks\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Users\abood\source\repos\JoVision-Backend-tasks\JoVision-Backend-tasks\bin\Debug\net8.0\UploadedFiles\10-6.png.json
