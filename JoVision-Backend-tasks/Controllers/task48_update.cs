@@ -13,12 +13,10 @@ namespace JoVision_Backend_tasks.Controllers
     {
         private readonly ILogger<UpdateController> _logger;
         private readonly string _storagePath = Path.Combine(Directory.GetCurrentDirectory(), "UploadedFiles");
-
         public UpdateController(ILogger<UpdateController> logger)
         {
             _logger = logger;
         }
-
         public class UpdateFileDto
         {
             public IFormFile? File { get; set; }
@@ -30,12 +28,11 @@ namespace JoVision_Backend_tasks.Controllers
         {
             if (updateFileDto.File == null || updateFileDto.File.Length == 0)
             {
-                return BadRequest("No file uploaded.");
+                return BadRequest("No file uploaded");
             }
-
             if (string.IsNullOrWhiteSpace(updateFileDto.Owner))
             {
-                return BadRequest("Owner name is required.");
+                return BadRequest("Owner name required");
             }
 
             var fileName = Path.GetFileName(updateFileDto.File.FileName);
@@ -44,34 +41,30 @@ namespace JoVision_Backend_tasks.Controllers
 
             if (!System.IO.File.Exists(filePath) || !System.IO.File.Exists(fileMetadataPath))
             {
-                return BadRequest("File does not exist.");
+                return BadRequest("File does not exist");
             }
-
             try
             {
                 var metadataJson = await System.IO.File.ReadAllTextAsync(fileMetadataPath);
                 var metadata = System.Text.Json.JsonSerializer.Deserialize<FileMetadata>(metadataJson);
-
                 if (metadata?.Owner != updateFileDto.Owner)
                 {
-                    return StatusCode(StatusCodes.Status403Forbidden, "File owner does not match.");
+                    return StatusCode(StatusCodes.Status403Forbidden, "file owner doesnt match");
                 }
-
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     await updateFileDto.File.CopyToAsync(stream);
                 }
-
                 metadata.LastModificationTime = DateTime.UtcNow;
 
                 await System.IO.File.WriteAllTextAsync(fileMetadataPath, System.Text.Json.JsonSerializer.Serialize(metadata));
 
-                return Ok("File updated successfully.");
+                return Ok("file updated successfully");
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while updating the file.");
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while updating the file.");
+                _logger.LogError(ex, "error updating file");
+                return StatusCode(StatusCodes.Status500InternalServerError, "error updating file");
             }
         }
 

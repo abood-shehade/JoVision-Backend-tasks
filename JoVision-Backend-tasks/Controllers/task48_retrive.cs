@@ -24,7 +24,7 @@ namespace JoVision_Backend_tasks.Controllers
         {
             if (string.IsNullOrWhiteSpace(fileName) || string.IsNullOrWhiteSpace(fileOwner))
             {
-                return BadRequest("FileName and FileOwner are required.");
+                return BadRequest("fileName and fileOwner required");
             }
 
             var filePath = Path.Combine(_storagePath, fileName);
@@ -32,7 +32,7 @@ namespace JoVision_Backend_tasks.Controllers
 
             if (!System.IO.File.Exists(filePath) || !System.IO.File.Exists(fileMetadataPath))
             {
-                return NotFound("File not found.");
+                return NotFound("File not found");
             }
 
             try
@@ -42,7 +42,7 @@ namespace JoVision_Backend_tasks.Controllers
 
                 if (metadata?.Owner != fileOwner)
                 {
-                    return StatusCode(StatusCodes.Status403Forbidden, "File owner does not match.");
+                    return StatusCode(StatusCodes.Status403Forbidden, "File owner does not match");
                 }
 
                 var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
@@ -52,8 +52,8 @@ namespace JoVision_Backend_tasks.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while retrieving the file.");
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while retrieving the file.");
+                _logger.LogError(ex, "error retriving file");
+                return StatusCode(StatusCodes.Status500InternalServerError, "error retriving file");
             }
         }
 

@@ -28,7 +28,7 @@ namespace JoVision_Backend_tasks.Controllers
         {
             if (string.IsNullOrWhiteSpace(fileName) || string.IsNullOrWhiteSpace(fileOwner))
             {
-                return BadRequest("FileName and FileOwner are required.");
+                return BadRequest("fileName and fileOwner required");
             }
 
             var filePath = Path.Combine(_storagePath, fileName);
@@ -36,7 +36,7 @@ namespace JoVision_Backend_tasks.Controllers
 
             if (!System.IO.File.Exists(filePath) || !System.IO.File.Exists(fileMetadataPath))
             {
-                return BadRequest("File or metadata not found.");
+                return BadRequest("File or metadata not found");
             }
 
             try
@@ -46,18 +46,18 @@ namespace JoVision_Backend_tasks.Controllers
 
                 if (metadata == null || !string.Equals(metadata.Owner, fileOwner, StringComparison.OrdinalIgnoreCase))
                 {
-                    return Forbid("File owner does not match.");
+                    return Forbid("File owner does not match");
                 }
 
                 System.IO.File.Delete(filePath);
                 System.IO.File.Delete(fileMetadataPath);
 
-                return Ok("File deleted successfully.");
+                return Ok("File deleted successfully");
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while deleting the file.");
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while deleting the file.");
+                _logger.LogError(ex, "error deleting the file");
+                return StatusCode(StatusCodes.Status500InternalServerError, "error deleting the file");
             }
         }
 

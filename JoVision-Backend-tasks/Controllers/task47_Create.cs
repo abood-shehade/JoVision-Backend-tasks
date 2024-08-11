@@ -33,12 +33,12 @@ namespace JoVision_Backend_tasks.Controllers
         {
             if (uploadFileDto.File == null || uploadFileDto.File.Length == 0)
             {
-                return BadRequest("No file uploaded.");
+                return BadRequest("No file uploaded");
             }
 
             if (string.IsNullOrWhiteSpace(uploadFileDto.Owner))
             {
-                return BadRequest("Owner name is required.");
+                return BadRequest("Owner name is required");
             }
 
             try
@@ -49,7 +49,7 @@ namespace JoVision_Backend_tasks.Controllers
 
                 if (System.IO.File.Exists(filePath))
                 {
-                    return BadRequest("A file with the same name already exists.");
+                    return BadRequest("A file with the same name already exists");
                 }
 
                 using (var stream = new FileStream(filePath, FileMode.Create))
@@ -70,8 +70,8 @@ namespace JoVision_Backend_tasks.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while uploading the file.");
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while uploading the file.");
+                _logger.LogError(ex, "error updating the file");
+                return StatusCode(StatusCodes.Status500InternalServerError, "error updating the file");
             }
         }
     }
